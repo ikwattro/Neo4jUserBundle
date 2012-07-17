@@ -1,0 +1,25 @@
+{
+    "name": "kwattro/neo4j-user-bundle",
+    "type": "symfony-bundle",
+    "description": "This Bundle lets adds Neo4j extension to the FOS User Bundle",
+    "keywords": ["ogm", "neo4j", "graph database", "users", "fos", "user-bundle", "user management"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christophe Willemsen",
+            "homepage": "https://github.com/kwattro"
+        }
+    ],
+
+    "require": {
+        "php":                      ">=5.3.2",
+        "kwattro/neo4j-ogm-bundle":     ">=2.0",
+        "friendsofsymfony/user-bundle": "*"
+    },
+
+    "autoload": {
+        "psr-0": { "Kwattro\\Neo4j\\UserBundle": "" }
+    },
+
+    "target-dir": "Kwattro/Neo4j/UserBundle"
+}
