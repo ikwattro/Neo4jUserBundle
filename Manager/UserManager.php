@@ -41,8 +41,9 @@ class UserManager implements BaseUserManagerInterface, UserProviderInterface
 
 		$this->repository = $graphManager->getRepository($class);
 
-		//$metadata = $graphManager->getMeta($class);
-		$this->class = $class;
+		//$metadata = $graphManager->getClassMetadata($class);
+        //$this->class = $metadata->getName();
+        $this->class = $class;
 	}
 
 	public function getClass()
@@ -57,6 +58,11 @@ class UserManager implements BaseUserManagerInterface, UserProviderInterface
 
 		return $user;
 	}
+
+    public function findUserById($id)
+    {
+        return $this->repository->find($id);
+    }
 
 	public function findUserBy(array $criteria)
 	{
