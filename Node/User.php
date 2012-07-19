@@ -31,6 +31,7 @@ abstract class User implements UserInterface, GroupableInterface
 
 	/**
 	* @OGM\Property
+    * @OGM\Index
 	*/
 	protected $usernameCanonical;
 
@@ -42,6 +43,7 @@ abstract class User implements UserInterface, GroupableInterface
 
 	/**
 	 * @OGM\Property
+     * @OGM\Index
 	 */
 	protected $emailCanonical;
 
@@ -105,6 +107,11 @@ abstract class User implements UserInterface, GroupableInterface
 	 * @OGM\Property
 	 */
 	protected $roles;
+
+    /**
+     * @OGM\Property
+     */
+    protected $credentialsExpired;
 
 	/**
 	 * @OGM\Property
@@ -301,8 +308,9 @@ abstract class User implements UserInterface, GroupableInterface
     public function getRoles()
     {
         $roles = $this->roles;
+        $groups = array();
 
-        foreach ($this->getGroups() as $group) {
+        foreach ($groups as $group) {
             $roles = array_merge($roles, $group->getRoles());
         }
 
@@ -618,7 +626,7 @@ abstract class User implements UserInterface, GroupableInterface
      */
     public function setLastLogin(\DateTime $time)
     {
-        $this->lastLogin = $time;
+        $this->lastLogin = $time->format('Y-m-d H:i:s');
 
         return $this;
     }
@@ -715,7 +723,8 @@ abstract class User implements UserInterface, GroupableInterface
      */
     public function getGroups()
     {
-        return $this->groups ?: $this->groups = new ArrayCollection();
+        //return $this->groups ?: $this->groups = new ArrayCollection();
+        return $this->groups ?: $this->groups = '';
     }
 
     /**
