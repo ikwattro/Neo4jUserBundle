@@ -12,7 +12,10 @@ use HireVoice\Neo4j\Annotation as OGM;
 /**
  * Class to be extended by your final User class
  * 
- * Getters and setters are copied from FOSUserBundle - this is a temporary solution until we can
+ * Getters and setters are inspired from FOSUserBundle, released under the MIT License
+ * https://github.com/FriendsOfSymfony/FOSUserBundle/blob/master/Model/User.php
+ * 
+ * this is a temporary solution until we can
  * load mapping informations for OGM from xml/yaml files
  *
  * @author Christophe Willemsen <willemsen.christophe@gmail.com>
