@@ -20,9 +20,6 @@ use HireVoice\Neo4j\Annotation as OGM;
 
 abstract class User implements UserInterface, GroupableInterface
 {
-	const ROLE_DEFAULT = 'ROLE_USER';
-	const ROLE_SUPER_ADMIN = 'ROLE_SUPER_ADMIN';
-
 	/**
 	* @OGM\Property
 	* @OGM\Index
@@ -194,6 +191,8 @@ abstract class User implements UserInterface, GroupableInterface
             $this->enabled,
             $this->id
         ) = $data;
+
+        return $data;
     }
 
     /**
