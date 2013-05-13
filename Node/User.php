@@ -104,9 +104,9 @@ abstract class User implements UserInterface, GroupableInterface
 	protected $expiresAt;
 
 	/**
-	 * @OGM\Property
-	 */
-	protected $roles;
+     * @OGM\Property(format="array")
+     */
+    protected $roles;
 
     /**
      * @OGM\Property
